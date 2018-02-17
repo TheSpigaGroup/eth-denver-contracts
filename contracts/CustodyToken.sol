@@ -19,7 +19,7 @@ contract CustodyToken is ERC721Token {
   WhiteList[] whiteList;
 
   // Mint token for trustee, add to whitelist validTokens (return token id?)
-  function startCustody(uint256 _tokenId) public {
+  function startCustody(uint256 _tokenId, address[] _whiteListAddrs)) public {
     tokenId++;
     _mint(msg.sender, tokenId);
   }

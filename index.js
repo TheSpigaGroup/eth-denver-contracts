@@ -20,12 +20,11 @@ token.currentProvider.sendAsync = function () {
 const accounts = Object.keys(keys.addresses);
 
 let thisToken = null;
+const whiteListed = [];
 
 token.deployed().then(instance => {
   thisToken = instance;
   web3.eth.defaultAddress = instance.address;
-
-  // return(instance.name());
 
   const whiteListed = [];
   accounts.forEach(acct => {
