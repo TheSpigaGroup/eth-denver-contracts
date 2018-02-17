@@ -36,6 +36,7 @@
     "import/no-unresolved": [0],
     "import/extensions": ["error", "never", {"jsx": "alaways", "png": "always"}],
     "arrow-parens": ["error", "as-needed"],
+    "no-console": [0],
     // End custom
     "no-unused-vars": [1],
     "no-use-before-define": [2, "nofunc"],
