@@ -29,8 +29,19 @@ contract TokenMeta {
   function getFinished(uint256 _tokenId) public view returns (bool) {
     return tokenMeta[_tokenId].finished;
   }
-  function getTransferLocations(uint256 _tokenId) public view returns ((int, int)[]) {
-    return transferLocations[_tokenId];
+  function getTransferLats(uint256 _tokenId) public view returns (int[]) {
+    int[] memory locs = new int[](transferLocations[_tokenId].length);
+    for (uint i = 0; i < transferLocations[_tokenId].length; i++) {
+      locs[i] = transferLocations[_tokenId][i].lat;
+    }
+    return locs;
+  }
+  function getTransferLongs(uint256 _tokenId) public view returns (int[]) {
+    int[] memory locs = new int[](transferLocations[_tokenId].length);
+    for (uint i = 0; i < transferLocations[_tokenId].length; i++) {
+      locs[i] = transferLocations[_tokenId][i].long;
+    }
+    return locs;
   }
   function getTransferTimes(uint256 _tokenId) public view returns (uint[]) {
     return transferTimes[_tokenId];

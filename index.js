@@ -38,11 +38,17 @@ token.deployed().then(instance => {
   tId = new BigNumber(result[0]);
   return thisToken.transfer(accounts[2], tId, 10, 40, { from: accounts[0], gas: 1000000 });
 }).then(result => {
-  return thisToken.getTransferLocations(tId, { from: accounts[0], gas: 1000000 });
+  return thisToken.getTransferLats(tId, { from: accounts[0], gas: 1000000 });
   // console.log(result.logs);
   // return thisToken.balanceOf(accounts[0], { from: accounts[0], gas: 1000000 });
 }).then(result => {
-  // console.log(result.toString(10));
+  console.log(result.toString(10));
+  return thisToken.getTransferLongs(tId, { from: accounts[0], gas: 1000000 });
+}).then(result => {
+  console.log(result.toString(10));
+  return thisToken.getTransferTimes(tId, { from: accounts[0], gas: 1000000 });
+}).then(result => {
+  console.log(new Date(+result.toString(10) * 1000));
 // }).then(result => {
 })
   .catch(err => {
