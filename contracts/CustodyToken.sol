@@ -41,9 +41,10 @@ contract CustodyToken is ERC721Token {
     }
   }
 
-  // Get whitelist (something wrong...)
-  function getWhiteList() public returns (WhiteList[]) {
-    return whiteList;
+  // Get whitelist address
+  function getWhiteList(uint _whiteListId) public view returns (address) {
+    WhiteList memory tmpList = whiteList[_whiteListId];
+    return tmpList._address;
   }
 
   function approve(bool approved, uint256 _tokenId) public view onlyOwnerOf(_tokenId) {

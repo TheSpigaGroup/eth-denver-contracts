@@ -36,8 +36,8 @@ token.deployed().then(instance => {
   return instance.setWhiteList(whiteListed, { from: accounts[0], gas: 1000000 });
 }).then(result => {
   console.log(result);
-  // return thisToken.getWhiteList({ from: accounts[0], gas: 1000000 });
-  return null;
+  return thisToken.getWhiteList(0, { from: accounts[0], gas: 1000000 });
+  // return this.getWhiteList();
 }).then(mass => {
   console.log(mass);
 }).catch(err => {
