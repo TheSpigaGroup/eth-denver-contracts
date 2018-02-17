@@ -18,7 +18,8 @@
   "scripts": {
     "test": "mocha",
     "testnet": "ganache-cli -m spiga -a 5 --acctKeys ./keys.json",
-    "build": "clear && rm -rf build/ && truffle compile && truffle migrate"
+    "build": "clear && rm -rf build/ && truffle compile && truffle migrate",
+    "dev": "clear && ./node_modules/.bin/nodemon index.js"
   },
   "keywords": [],
   "author": "",

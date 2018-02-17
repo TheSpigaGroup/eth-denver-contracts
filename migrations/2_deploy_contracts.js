@@ -1,8 +1,6 @@
-// eslint-ignore-no-undef
-// const Issuer = artifacts.require('./Issuer.sol');
-const Token = artifacts.require("./Token.sol");
+// eslint-disable-next-line no-undef
+const CustodyToken = artifacts.require("./CustodyToken.sol");
 
 module.exports = deployer => {
-  // deployer.deploy(Issuer);
-  deployer.deploy(Token);
+  deployer.deploy(CustodyToken);
 };

@@ -145,7 +145,7 @@
       "absolutePath": "/Users/gcperrin/dev/eth_denver/eth_denver-contracts/contracts/Issuer.sol",
       "exportedSymbols": {
         "Issuer": [
-          5
+          122
         ]
       }
     },
@@ -159,42 +159,42 @@
             ".19"
           ]
         },
-        "id": 1,
+        "id": 118,
         "name": "PragmaDirective",
-        "src": "0:24:0"
+        "src": "0:24:1"
       },
       {
         "attributes": {
-          "SourceUnit": 261,
+          "SourceUnit": 330,
           "absolutePath": "zeppelin-solidity/contracts/token/ERC721/ERC721.sol",
           "file": "zeppelin-solidity/contracts/token/ERC721/ERC721.sol",
-          "scope": 6,
+          "scope": 123,
           "symbolAliases": [
             null
           ],
           "unitAlias": ""
         },
-        "id": 2,
+        "id": 119,
         "name": "ImportDirective",
-        "src": "25:61:0"
+        "src": "25:61:1"
       },
       {
         "attributes": {
           "contractDependencies": [
-            260
+            329
           ],
           "contractKind": "contract",
           "documentation": null,
           "fullyImplemented": false,
           "linearizedBaseContracts": [
-            5,
-            260
+            122,
+            329
           ],
           "name": "Issuer",
           "nodes": [
             null
           ],
-          "scope": 6
+          "scope": 123
         },
         "children": [
           {
@@ -208,27 +208,27 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "ERC721",
-                  "referencedDeclaration": 260,
+                  "referencedDeclaration": 329,
                   "type": "contract ERC721"
                 },
-                "id": 3,
+                "id": 120,
                 "name": "UserDefinedTypeName",
-                "src": "107:6:0"
+                "src": "107:6:1"
               }
             ],
-            "id": 4,
+            "id": 121,
             "name": "InheritanceSpecifier",
-            "src": "107:6:0"
+            "src": "107:6:1"
           }
         ],
-        "id": 5,
+        "id": 122,
         "name": "ContractDefinition",
-        "src": "88:29:0"
+        "src": "88:29:1"
       }
     ],
-    "id": 6,
+    "id": 123,
     "name": "SourceUnit",
-    "src": "0:118:0"
+    "src": "0:118:1"
   },
   "compiler": {
     "name": "solc",
@@ -236,5 +236,5 @@
   },
   "networks": {},
   "schemaVersion": "1.0.1",
-  "updatedAt": "2018-02-17T07:50:32.310Z"
+  "updatedAt": "2018-02-17T11:55:02.118Z"
 }
