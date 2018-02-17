@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "ganache-cli": "^6.0.3",
     "truffle": "^4.0.6",
     "truffle-contract": "^3.0.3",
     "web3": "^1.0.0-beta.30",
@@ -17,7 +18,7 @@
   },
   "scripts": {
     "test": "mocha",
-    "testnet": "ganache-cli -m spiga -a 5 --acctKeys ./keys.json",
+    "testnet": "./node_modules/.bin/ganache-cli -m spiga -a 5 --acctKeys ./keys.json",
     "build": "clear && rm -rf build/ && truffle compile && truffle migrate"
   },
   "keywords": [],
