@@ -16,7 +16,9 @@
     "nodemon": "^1.15.0"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "testnet": "ganache-cli -m spiga -a 5 --acctKeys ./keys.json",
+    "build": "clear && rm -rf build/ && truffle compile && truffle migrate"
   },
   "keywords": [],
   "author": "",

@@ -139,10 +139,10 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "pragma solidity ^0.4.19;\nimport 'zeppelin-solidity/contracts/token/ERC721/ERC721.sol';\n\ncontract Issuer is ERC721 {\n}\n",
-  "sourcePath": "/Users/gcperrin/dev/eth_denver/chain/contracts/Issuer.sol",
+  "sourcePath": "/Users/gcperrin/dev/eth_denver/eth_denver-contracts/contracts/Issuer.sol",
   "ast": {
     "attributes": {
-      "absolutePath": "/Users/gcperrin/dev/eth_denver/chain/contracts/Issuer.sol",
+      "absolutePath": "/Users/gcperrin/dev/eth_denver/eth_denver-contracts/contracts/Issuer.sol",
       "exportedSymbols": {
         "Issuer": [
           5
@@ -165,7 +165,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 219,
+          "SourceUnit": 261,
           "absolutePath": "zeppelin-solidity/contracts/token/ERC721/ERC721.sol",
           "file": "zeppelin-solidity/contracts/token/ERC721/ERC721.sol",
           "scope": 6,
@@ -181,14 +181,14 @@
       {
         "attributes": {
           "contractDependencies": [
-            218
+            260
           ],
           "contractKind": "contract",
           "documentation": null,
           "fullyImplemented": false,
           "linearizedBaseContracts": [
             5,
-            218
+            260
           ],
           "name": "Issuer",
           "nodes": [
@@ -208,7 +208,7 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "ERC721",
-                  "referencedDeclaration": 218,
+                  "referencedDeclaration": 260,
                   "type": "contract ERC721"
                 },
                 "id": 3,
@@ -236,5 +236,5 @@
   },
   "networks": {},
   "schemaVersion": "1.0.1",
-  "updatedAt": "2018-02-17T04:11:52.133Z"
+  "updatedAt": "2018-02-17T07:50:32.310Z"
 }
