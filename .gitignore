@@ -15,3 +15,4 @@ yarn.lock
 nodemon.json
 .tern-port
 .tern-project
+build/
