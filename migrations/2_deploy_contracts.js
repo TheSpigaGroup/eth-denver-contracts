@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-undef
-const CustodyToken = artifacts.require("./CustodyToken.sol");
+const CustodyChain = artifacts.require("./CustodyChain.sol");
 
 module.exports = deployer => {
-  deployer.deploy(CustodyToken);
+  deployer.deploy(CustodyChain);
 };

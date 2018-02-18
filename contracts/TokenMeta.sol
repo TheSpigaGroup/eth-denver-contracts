@@ -5,7 +5,7 @@ contract TokenMeta {
   struct Meta {
     address issuer;
     uint created;
-    bool approved;
+    uint approved;
     bool finished;
   }
   struct Location {
@@ -20,7 +20,7 @@ contract TokenMeta {
   function getIssuer(uint256 _tokenId) public view returns (address) {
     return tokenMeta[_tokenId].issuer;
   }
-  function getTokenApproved(uint256 _tokenId) public view returns (bool) {
+  function getTokenApproved(uint256 _tokenId) public view returns (uint) {
     return tokenMeta[_tokenId].approved;
   }
   function getCreated(uint256 _tokenId) public view returns (uint) {

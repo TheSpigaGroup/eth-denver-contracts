@@ -2,14 +2,14 @@
 const Web3 = require('web3');
 const BigNumber = require('bignumber.js');
 const contract = require('truffle-contract');
-const CustodyToken = require('./build/contracts/CustodyToken.json');
+const CustodyChain = require('./build/contracts/CustodyChain.json');
 const keys = require('./keys.json');
 
 // Setup RPC connection
 const provider = new Web3.providers.HttpProvider('http://127.0.0.1:8545');
 
 // Read JSON and attach RPC connection (Provider)
-const token = contract(CustodyToken);
+const token = contract(CustodyChain);
 token.setProvider(provider);
 
 token.currentProvider.sendAsync =  function () {
@@ -34,8 +34,9 @@ token.deployed().then(instance => {
 }).then(result => {
   return thisToken.tokensOf(accounts[0], { from: accounts[0], gas: 1000000 });
 }).then(result => {
-  // console.log(result.toString(10));
   tId = new BigNumber(result[0]);
+  return thisToken.approveCustody(tId, true, { from: accounts[0], gas: 1000000 });
+}).then(result => {
   return thisToken.transfer(accounts[2], tId, 10, 40, { from: accounts[0], gas: 1000000 });
 }).then(result => {
   return thisToken.getTransferLats(tId, { from: accounts[0], gas: 1000000 });
