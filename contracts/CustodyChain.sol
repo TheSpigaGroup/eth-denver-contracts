@@ -14,7 +14,7 @@ contract CustodyChain is ERC721Token, TokenMeta {
   address[] internal wListAddrs;
 
   // Only allow custodychain issuer
-  modifier onlyIssuer(uint256 _tokenId) {
+  modifier onlyIssuerOf(uint256 _tokenId) {
     require(tokenMeta[_tokenId].issuer == msg.sender);
       _;
   }
@@ -31,12 +31,14 @@ contract CustodyChain is ERC721Token, TokenMeta {
       issuer: msg.sender,
       created: now,
       approved: 0,
-      finished: false
+      finished: false,
+      tampered: false
     });
     // Send back the new ID
     return tokenId;
   }
 
+  // Start CustodyChain with a custom tokenId
   function startCustody(uint256 _tokenId) public returns (uint256) {
     // Mint new CustodyChain
     _mint(msg.sender, _tokenId);
@@ -45,14 +47,15 @@ contract CustodyChain is ERC721Token, TokenMeta {
       issuer: msg.sender,
       created: now,
       approved: 0,
-      finished: false
+      finished: false,
+      tampered: false
     });
     return _tokenId;
   }
 
 
   // Function to allow a chain of custody to occur
-  function approveCustody(uint _tokenId, bool approved) public onlyOwnerOf(_tokenId) onlyIssuer(_tokenId) {
+  function approveCustody(uint _tokenId, bool approved) public onlyOwnerOf(_tokenId) onlyIssuerOf(_tokenId) {
     // If approved, timestamp, otherwise destroy the token
     if (approved) {
       tokenMeta[_tokenId].approved = now;
@@ -65,6 +68,12 @@ contract CustodyChain is ERC721Token, TokenMeta {
   function endCustody(uint256 _tokenId) onlyOwnerOf(_tokenId) public {
     // Go into lockup
     tokenMeta[_tokenId].finished = true;
+  }
+  // Burn token for trustee, remove from whitelist validTokens
+  function reportBadActor(uint256 _tokenId) onlyIssuerOf(_tokenId) public {
+    // Go into lockup
+    tokenMeta[_tokenId].finished = true;
+    tokenMeta[_tokenId].tampered = true;
   }
 
   // Add address(es) in whitelist

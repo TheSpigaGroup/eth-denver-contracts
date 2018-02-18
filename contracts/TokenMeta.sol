@@ -7,6 +7,7 @@ contract TokenMeta {
     uint created;
     uint approved;
     bool finished;
+    bool tampered;
   }
   struct Location {
     int lat;
@@ -28,6 +29,9 @@ contract TokenMeta {
   }
   function getFinished(uint256 _tokenId) public view returns (bool) {
     return tokenMeta[_tokenId].finished;
+  }
+  function getTampered(uint256 _tokenId) public view returns (bool) {
+    return tokenMeta[_tokenId].tampered;
   }
   function getTransferLats(uint256 _tokenId) public view returns (int[]) {
     int[] memory locs = new int[](transferLocations[_tokenId].length);
