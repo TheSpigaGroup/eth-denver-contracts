@@ -29,7 +29,10 @@ contract CustodyToken is ERC721Token, TokenMeta {
   function endCustody(uint256 _tokenId) onlyOwnerOf(_tokenId) public {
     _burn(_tokenId);
   }
+  function escrow(uint256 _tokenId)  private {
 
+
+  }
   // Add address(es) in whitelist
   function setWhiteList(address[] _list) public {
     for (uint i=0; i<_list.length-1; i++) {
@@ -37,27 +40,31 @@ contract CustodyToken is ERC721Token, TokenMeta {
     }
     wListAddrs = _list;
   }
-
-  // Get whitelist address
+    // Get whitelist address
   function getWhiteList() public view returns (address[]) {
     return wListAddrs;
   }
 
-
-  function transfer(address _to, uint256 _tokenId, int _lat, int _long) public onlyOwnerOf(_tokenId) {
-    require(wList[_to]);
-    transferLocations[_tokenId].push(Location({lat: _lat, long: _long}));
-    transferTimes[_tokenId].push(now);
-    super.transfer(_to, _tokenId);
-  }
-  function transfer(address _to, uint256 _tokenId) public onlyOwnerOf(_tokenId) {
-    require(wList[_to]);
-    transferLocations[_tokenId].push(Location({lat: 0, long: 0}));
-    transferTimes[_tokenId].push(now);
-    super.transfer(_to, _tokenId);
+  function transfer(address _to, uint256 _tokenId) public {
+    clearApprovalAndTransfer(msg.sender, _to, _tokenId);
   }
 
-  function name() pure public returns (string) {
-    return tokenName;
+  function approve(address _to, uint256 _tokenId) public onlyOwnerOf(_tokenId){
+    address owner = ownerOf(_tokenId);
+    require(_to != owner);
+    require(wList[_to]);
   }
+
+  function takeOwnership(uint256 _tokenId) public {
+    require(isApprovedFor(msg.sender, _tokenId));
+    clearApprovalAndTransfer(ownerOf(_tokenId), msg.sender, _tokenId);
+  }
+
+  function ownerOf(uint256 _tokenId) public view returns (address) {
+    address owner = wListAddrs[_tokenId];
+    require(owner != address(0));
+    return owner;
+  }
+ // function balanceOf(address _owner) public view returns (uint256) {
+  //   return ownedTokens[_owner].length;
 }
