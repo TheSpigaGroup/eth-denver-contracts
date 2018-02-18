@@ -18,9 +18,10 @@
   },
   "scripts": {
     "test": "mocha",
-    "testnet": "clear && ganache-cli -m spiga -a 5 --acctKeys ./keys.json",
-    "build": "clear && rm -rf build/ && truffle compile && truffle migrate",
-    "dev": "clear && ./node_modules/.bin/nodemon index.js"
+    "testnet": "clear && ganache-cli -m spiga -a 5 --acctKeys ./keys.json && cp -rf keys.json ../eth-denver-mobile/",
+    "build": "clear && rm -rf build/ && rm -rf ../eth-denver-mobile/build truffle compile && truffle migrate && cp -rf build ../eth-denver-mobile",
+    "dev": "clear && ./node_modules/.bin/nodemon index.test.js",
+    "deploy": "node index.js"
   },
   "keywords": [],
   "author": "",
