@@ -29,10 +29,9 @@ contract CustodyToken is ERC721Token, TokenMeta {
   function endCustody(uint256 _tokenId) onlyOwnerOf(_tokenId) public {
     _burn(_tokenId);
   }
-  function escrow(uint256 _tokenId)  private {
+  // function escrow(uint256 _tokenId)  private {
 
-
-  }
+  // }
   // Add address(es) in whitelist
   function setWhiteList(address[] _list) public {
     for (uint i=0; i<_list.length-1; i++) {
